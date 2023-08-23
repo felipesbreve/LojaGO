@@ -3,7 +3,8 @@ package main
 import (
 	"html/template"
 	"net/http"
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/felipesbreve/LojaGO/models"
+
 )
 
 
@@ -15,6 +16,6 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "Index", produtos)
-	defer db.Close()
+	todosOsProdutos := models.BuscaTodosOsProdutos()
+	temp.ExecuteTemplate(w, "Index", todosOsProdutos)
 }

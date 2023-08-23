@@ -1,6 +1,6 @@
 package models
 
-import "PROJETO GO/db/"
+import "github.com/felipesbreve/db"
 
 type Produto struct {
 	Id int
